@@ -195,8 +195,12 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
           labelElement.textStyle = datumOutsideLabelStyle;
           labelElement.maxWidth = outsideArcWidth;
         }
-        labelElementBottom.textStyle = _getTextStyle(graphicsFactory,
-            TextStyleSpec(color: Color(r: 51, g: 51, b: 51), fontSize: 14));
+        labelElementBottom.textStyle = _getTextStyle(
+            graphicsFactory,
+            TextStyleSpec(
+                color: Color(r: 51, g: 51, b: 51),
+                fontSize: 14,
+                fontWeight: '400'));
 
         // Only calculate and draw label if there's actually space for the
         // label.
@@ -249,7 +253,8 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
       ..color = labelSpec.color ?? Color.black
       ..fontFamily = labelSpec.fontFamily
       ..fontSize = labelSpec.fontSize ?? 12
-      ..lineHeight = labelSpec.lineHeight;
+      ..lineHeight = labelSpec.lineHeight
+      ..fontWeight = labelSpec.fontWeight;
   }
 
   /// Helper function to get datum specific style
