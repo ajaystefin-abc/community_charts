@@ -96,6 +96,7 @@ class Series<T, D> {
   final AccessorFn<num>? radiusPxFn;
   final AccessorFn<num?>? strokeWidthPxFn;
   final AccessorFn<String>? labelAccessorFn;
+  final AccessorFn<String>? labelBottomAccessorFn;
   final AccessorFn<TextStyleSpec>? insideLabelStyleAccessorFn;
   final AccessorFn<TextStyleSpec>? outsideLabelStyleAccessorFn;
 
@@ -121,6 +122,7 @@ class Series<T, D> {
       TypedAccessorFn<T, FillPatternType>? fillPatternFn,
       TypedAccessorFn<T, String>? keyFn,
       TypedAccessorFn<T, String>? labelAccessorFn,
+      TypedAccessorFn<T, String>? labelBottomAccessorFn,
       TypedAccessorFn<T, TextStyleSpec>? insideLabelStyleAccessorFn,
       TypedAccessorFn<T, TextStyleSpec>? outsideLabelStyleAccessorFn,
       TypedAccessorFn<T, MeasureFormatter>? measureFormatterFn,
@@ -163,6 +165,9 @@ class Series<T, D> {
     final _labelAccessorFn = labelAccessorFn == null
         ? null
         : (int? index) => labelAccessorFn(data[index!], index);
+    final _labelBottomAccessorFn = labelBottomAccessorFn == null
+        ? null
+        : (int? index) => labelBottomAccessorFn(data[index!], index);
     final _insideLabelStyleAccessorFn = insideLabelStyleAccessorFn == null
         ? null
         : (int? index) => insideLabelStyleAccessorFn(data[index!], index);
@@ -207,6 +212,7 @@ class Series<T, D> {
       keyFn: _keyFn,
       patternColorFn: _patternColorFn,
       labelAccessorFn: _labelAccessorFn,
+      labelBottomAccessorFn: _labelBottomAccessorFn,
       insideLabelStyleAccessorFn: _insideLabelStyleAccessorFn,
       outsideLabelStyleAccessorFn: _outsideLabelStyleAccessorFn,
       measureFormatterFn: _measureFormatterFn,
@@ -238,6 +244,7 @@ class Series<T, D> {
     required this.patternColorFn,
     required this.keyFn,
     required this.labelAccessorFn,
+    required this.labelBottomAccessorFn,
     required this.insideLabelStyleAccessorFn,
     required this.outsideLabelStyleAccessorFn,
     required this.measureFormatterFn,
