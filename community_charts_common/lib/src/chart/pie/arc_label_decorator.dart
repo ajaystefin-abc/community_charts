@@ -346,7 +346,8 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
       // Shift the label horizontally by the length of the leader line.
       labelX = (labelX + tailX).round();
 
-      labelElement.maxWidth = (labelElement.maxWidth! - tailX.abs()).round();
+      labelElement.maxWidth =
+          (labelElement.maxWidth! - tailX.abs()).round() + 20;
     }
 
     canvas.drawText(labelElement, labelX, labelY - 10);
