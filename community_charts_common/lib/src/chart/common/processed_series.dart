@@ -112,7 +112,7 @@ class MutableSeries<D> extends ImmutableSeries<D> {
   AccessorFn<String>? labelAccessorFn;
   @override
   AccessorFn<String>? labelBottomAccessorFn;
-   @override
+  @override
   AccessorFn<String>? labelBottom2AccessorFn;
 
   @override
@@ -170,7 +170,7 @@ class MutableSeries<D> extends ImmutableSeries<D> {
     labelAccessorFn = series.labelAccessorFn ?? (i) => domainFn(i).toString();
     labelBottomAccessorFn =
         series.labelBottomAccessorFn ?? (i) => domainFn(i).toString();
-        labelBottom2AccessorFn =
+    labelBottom2AccessorFn =
         series.labelBottom2AccessorFn ?? (i) => domainFn(i).toString();
 
     _attrs.mergeFrom(series.attributes);

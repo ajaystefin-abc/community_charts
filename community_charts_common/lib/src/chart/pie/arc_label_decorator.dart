@@ -121,7 +121,7 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
         final label = (labelFn != null) ? labelFn(datumIndex) : null;
         final labelBottom =
             (labelBottomFn != null) ? labelBottomFn(datumIndex) : null;
-             final labelBottom2 =
+        final labelBottom2 =
             (labelBottom2Fn != null) ? labelBottom2Fn(datumIndex) : null;
 
         // If there are custom styles, use that instead of the default or the

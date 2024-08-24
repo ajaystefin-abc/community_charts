@@ -170,7 +170,7 @@ class Series<T, D> {
     final _labelBottomAccessorFn = labelBottomAccessorFn == null
         ? null
         : (int? index) => labelBottomAccessorFn(data[index!], index);
-           final _labelBottom2AccessorFn = labelBottom2AccessorFn == null
+    final _labelBottom2AccessorFn = labelBottom2AccessorFn == null
         ? null
         : (int? index) => labelBottom2AccessorFn(data[index!], index);
     final _insideLabelStyleAccessorFn = insideLabelStyleAccessorFn == null
