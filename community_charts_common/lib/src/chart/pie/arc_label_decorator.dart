@@ -116,10 +116,13 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
       for (var element in arcElements.arcs) {
         final labelFn = element.series.labelAccessorFn;
         final labelBottomFn = element.series.labelBottomAccessorFn;
+        final labelBottom2Fn = element.series.labelBottom2AccessorFn;
         final datumIndex = element.index;
         final label = (labelFn != null) ? labelFn(datumIndex) : null;
         final labelBottom =
             (labelBottomFn != null) ? labelBottomFn(datumIndex) : null;
+             final labelBottom2 =
+            (labelBottom2Fn != null) ? labelBottom2Fn(datumIndex) : null;
 
         // If there are custom styles, use that instead of the default or the
         // style defined for the entire decorator.

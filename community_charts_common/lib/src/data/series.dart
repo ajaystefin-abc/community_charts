@@ -97,6 +97,7 @@ class Series<T, D> {
   final AccessorFn<num?>? strokeWidthPxFn;
   final AccessorFn<String>? labelAccessorFn;
   final AccessorFn<String>? labelBottomAccessorFn;
+  final AccessorFn<String>? labelBottom2AccessorFn;
   final AccessorFn<TextStyleSpec>? insideLabelStyleAccessorFn;
   final AccessorFn<TextStyleSpec>? outsideLabelStyleAccessorFn;
 
@@ -123,6 +124,7 @@ class Series<T, D> {
       TypedAccessorFn<T, String>? keyFn,
       TypedAccessorFn<T, String>? labelAccessorFn,
       TypedAccessorFn<T, String>? labelBottomAccessorFn,
+      TypedAccessorFn<T, String>? labelBottom2AccessorFn,
       TypedAccessorFn<T, TextStyleSpec>? insideLabelStyleAccessorFn,
       TypedAccessorFn<T, TextStyleSpec>? outsideLabelStyleAccessorFn,
       TypedAccessorFn<T, MeasureFormatter>? measureFormatterFn,
@@ -168,6 +170,9 @@ class Series<T, D> {
     final _labelBottomAccessorFn = labelBottomAccessorFn == null
         ? null
         : (int? index) => labelBottomAccessorFn(data[index!], index);
+           final _labelBottom2AccessorFn = labelBottom2AccessorFn == null
+        ? null
+        : (int? index) => labelBottom2AccessorFn(data[index!], index);
     final _insideLabelStyleAccessorFn = insideLabelStyleAccessorFn == null
         ? null
         : (int? index) => insideLabelStyleAccessorFn(data[index!], index);
@@ -213,6 +218,7 @@ class Series<T, D> {
       patternColorFn: _patternColorFn,
       labelAccessorFn: _labelAccessorFn,
       labelBottomAccessorFn: _labelBottomAccessorFn,
+      labelBottom2AccessorFn: _labelBottom2AccessorFn,
       insideLabelStyleAccessorFn: _insideLabelStyleAccessorFn,
       outsideLabelStyleAccessorFn: _outsideLabelStyleAccessorFn,
       measureFormatterFn: _measureFormatterFn,
@@ -245,6 +251,7 @@ class Series<T, D> {
     required this.keyFn,
     required this.labelAccessorFn,
     required this.labelBottomAccessorFn,
+    required this.labelBottom2AccessorFn,
     required this.insideLabelStyleAccessorFn,
     required this.outsideLabelStyleAccessorFn,
     required this.measureFormatterFn,
