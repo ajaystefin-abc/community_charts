@@ -208,6 +208,12 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
                 color: Color(r: 51, g: 51, b: 51),
                 fontSize: fontSize,
                 fontWeight: '400'));
+        labelElementBottom2.textStyle = _getTextStyle(
+            graphicsFactory,
+            TextStyleSpec(
+                color: Color(r: 199, g: 34, b: 42),
+                fontSize: fontSize,
+                fontWeight: '600'));
 
         // Only calculate and draw label if there's actually space for the
         // label.
