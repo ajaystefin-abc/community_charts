@@ -180,6 +180,9 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
         final labelElementBottom = graphicsFactory
             .createTextElement(labelBottom!)
           ..maxWidthStrategy = MaxWidthStrategy.ellipsize;
+        final labelElementBottom2 = graphicsFactory
+            .createTextElement(labelBottom2!)
+          ..maxWidthStrategy = MaxWidthStrategy.ellipsize;
 
         var calculatedLabelPosition = calculateLabelPosition(
             labelElement,
@@ -213,8 +216,14 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
           if (calculatedLabelPosition == ArcLabelPosition.inside) {
             _drawInsideLabel(canvas, arcElements, labelElement, centerAngle);
           } else {
-            final l = _drawOutsideLabel(canvas, drawBounds, arcElements,
-                labelElement, labelElementBottom, centerAngle);
+            final l = _drawOutsideLabel(
+                canvas,
+                drawBounds,
+                arcElements,
+                labelElement,
+                labelElementBottom,
+                labelElementBottom2,
+                centerAngle);
 
             if (l != null) {
               updateCollisionDetectionParams(l);
@@ -311,6 +320,7 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
       ArcRendererElementList<D> arcElements,
       TextElement labelElement,
       TextElement labelElementBottom,
+      TextElement labelElementBottom2,
       double centerAngle) {
     final labelRadius = getLabelRadius(arcElements);
 
@@ -336,6 +346,8 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
         labelLeftOfChart ? TextDirection.rtl : TextDirection.ltr;
     labelElementBottom.textDirection =
         labelLeftOfChart ? TextDirection.rtl : TextDirection.ltr;
+    labelElementBottom2.textDirection =
+        labelLeftOfChart ? TextDirection.rtl : TextDirection.ltr;
 
     // Skip this label if it collides with the previously drawn label.
     if (detectOutsideLabelCollision(labelY, labelLeftOfChart,
@@ -356,6 +368,8 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
 
     canvas.drawText(labelElement, labelX, labelY - 10);
     canvas.drawText(labelElementBottom, labelX, labelY + 10);
+    if (labelElementBottom2.text.isNotEmpty)
+      canvas.drawText(labelElementBottom2, labelX, labelY + 25);
 
     // Return a structured list of values.
     return [labelLeftOfChart, labelY];
