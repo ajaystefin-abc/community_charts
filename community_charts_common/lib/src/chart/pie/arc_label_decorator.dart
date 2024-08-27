@@ -199,7 +199,7 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
         } else {
           // calculatedLabelPosition == LabelPosition.outside
           labelElement.textStyle = datumOutsideLabelStyle;
-          labelElement.maxWidth = outsideArcWidth;
+          labelElement.maxWidth = outsideArcWidth + 20;
         }
         int fontSize = labelElementBottom.text.length > 15 ? 9 : 11;
         labelElementBottom.textStyle = _getTextStyle(
