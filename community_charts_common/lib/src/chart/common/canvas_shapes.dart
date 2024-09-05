@@ -122,6 +122,8 @@ class CanvasPieSlice {
   double startAngle;
   double endAngle;
   Color? fill;
+  bool isBorderRequired = false;
 
-  CanvasPieSlice(this.startAngle, this.endAngle, {this.fill});
+  CanvasPieSlice(this.startAngle, this.endAngle,
+      {this.fill, this.isBorderRequired = false});
 }

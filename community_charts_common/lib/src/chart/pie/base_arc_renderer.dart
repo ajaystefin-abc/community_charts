@@ -199,16 +199,17 @@ abstract class BaseArcRenderer<D> extends BaseSeriesRenderer<D> {
           animationPercent: animationPercent,
           rtl: isRtl);
     });
-
+    int i = 0;
     for (var arcList in arcLists) {
       final circleSectors = <CanvasPieSlice>[];
+      bool shouldHaveBorder = config.shouldHighlights?[i] ?? false;
 
       arcList.arcs
           .map<ArcRendererElement<D>>((AnimatedArc<D> animatingArc) =>
               animatingArc.getCurrentArc(animationPercent))
           .forEach((arc) {
-        circleSectors
-            .add(CanvasPieSlice(arc.startAngle, arc.endAngle, fill: arc.color));
+        circleSectors.add(CanvasPieSlice(arc.startAngle, arc.endAngle,
+            fill: arc.color, isBorderRequired: shouldHaveBorder));
 
         arcListToElementsList[arcList].arcs.add(arc);
       });

@@ -74,6 +74,8 @@ abstract class BaseArcRendererConfig<D> extends LayoutViewConfig
   /// drawn.
   final Color noDataColor;
 
+  final List<bool>? shouldHighlights;
+
   BaseArcRendererConfig(
       {this.customRendererId,
       this.arcLength = 2 * pi,
@@ -84,6 +86,7 @@ abstract class BaseArcRendererConfig<D> extends LayoutViewConfig
       this.minHoleWidthForCenterContent = 30,
       this.startAngle = -pi / 2,
       this.strokeWidthPx = 2.0,
+      this.shouldHighlights,
       SymbolRenderer? symbolRenderer})
       : noDataColor = StyleFactory.style.noDataColor,
         stroke = StyleFactory.style.arcStrokeColor,
