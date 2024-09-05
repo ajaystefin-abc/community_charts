@@ -202,16 +202,17 @@ abstract class BaseArcRenderer<D> extends BaseSeriesRenderer<D> {
     int i = 0;
     for (var arcList in arcLists) {
       final circleSectors = <CanvasPieSlice>[];
-      bool shouldHaveBorder = config.shouldHighlights?[i] ?? false;
-      i++;
-      print("shouldHaveBorder $shouldHaveBorder ${config.shouldHighlights} $i");
 
       arcList.arcs
           .map<ArcRendererElement<D>>((AnimatedArc<D> animatingArc) =>
               animatingArc.getCurrentArc(animationPercent))
           .forEach((arc) {
+        bool shouldHaveBorder = config.shouldHighlights?[i] ?? false;
+        print(
+            "shouldHaveBorder $shouldHaveBorder ${config.shouldHighlights} $i");
         circleSectors.add(CanvasPieSlice(arc.startAngle, arc.endAngle,
             fill: arc.color, isBorderRequired: shouldHaveBorder));
+        i++;
 
         arcListToElementsList[arcList].arcs.add(arc);
       });
