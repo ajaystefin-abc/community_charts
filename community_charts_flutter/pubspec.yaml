@@ -24,7 +24,7 @@ dependencies:
     git:
       url: https://github.com/ajaystefin-abc/community_charts
       path: community_charts_common
-      ref: 506aff6b4057a02549e2b063ecdfd6f420ce27de
+      ref: 1dc54cfc501f37e09db492ad67f198523e407537
   flutter:
     sdk: flutter
 
