@@ -33,7 +33,8 @@ class ArcRendererConfig<D> extends BaseArcRendererConfig<D> {
       int minHoleWidthForCenterContent = 30,
       double startAngle = -pi / 2,
       double strokeWidthPx = 2.0,
-      SymbolRenderer? symbolRenderer})
+      SymbolRenderer? symbolRenderer,
+      List<bool>? shouldHighlights})
       : super(
             customRendererId: customRendererId,
             arcLength: arcLength,
@@ -43,7 +44,8 @@ class ArcRendererConfig<D> extends BaseArcRendererConfig<D> {
             minHoleWidthForCenterContent: minHoleWidthForCenterContent,
             startAngle: startAngle,
             strokeWidthPx: strokeWidthPx,
-            arcRendererDecorators: arcRendererDecorators);
+            arcRendererDecorators: arcRendererDecorators,
+            shouldHighlights: shouldHighlights);
 
   @override
   ArcRenderer<D> build() {
