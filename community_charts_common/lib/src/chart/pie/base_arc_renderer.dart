@@ -203,6 +203,7 @@ abstract class BaseArcRenderer<D> extends BaseSeriesRenderer<D> {
     for (var arcList in arcLists) {
       final circleSectors = <CanvasPieSlice>[];
       bool shouldHaveBorder = config.shouldHighlights?[i] ?? false;
+      i++;
 
       arcList.arcs
           .map<ArcRendererElement<D>>((AnimatedArc<D> animatingArc) =>
