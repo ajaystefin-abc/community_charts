@@ -44,7 +44,7 @@ class CircleSectorPainter {
       common.Color? fill,
       bool isBorderRequired = false}) {
     if (isBorderRequired) {
-      paint.color = Color.fromARGB(255, 0, 5, 5);
+      paint.color = Color.fromARGB(255, 199, 34, 42);
     } else {
       paint.color = new Color.fromARGB(fill!.a, fill.r, fill.g, fill.b);
     }
