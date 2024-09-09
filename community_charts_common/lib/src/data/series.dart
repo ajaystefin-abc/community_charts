@@ -99,6 +99,7 @@ class Series<T, D> {
   final AccessorFn<String>? labelBottomAccessorFn;
   final AccessorFn<String>? labelBottom2AccessorFn;
   final AccessorFn<Color>? labelBottom2ColorAccessorFn;
+  final AccessorFn<bool>? shouldDrawLabelAccessorFn;
   final AccessorFn<TextStyleSpec>? insideLabelStyleAccessorFn;
   final AccessorFn<TextStyleSpec>? outsideLabelStyleAccessorFn;
 
@@ -127,6 +128,7 @@ class Series<T, D> {
       TypedAccessorFn<T, String>? labelBottomAccessorFn,
       TypedAccessorFn<T, String>? labelBottom2AccessorFn,
       TypedAccessorFn<T, Color>? labelBottom2ColorAccessorFn,
+      TypedAccessorFn<T, bool>? shouldDrawLabelAccessorFn,
       TypedAccessorFn<T, TextStyleSpec>? insideLabelStyleAccessorFn,
       TypedAccessorFn<T, TextStyleSpec>? outsideLabelStyleAccessorFn,
       TypedAccessorFn<T, MeasureFormatter>? measureFormatterFn,
@@ -178,6 +180,9 @@ class Series<T, D> {
     final _labelBottom2ColorAccessorFn = labelBottom2ColorAccessorFn == null
         ? null
         : (int? index) => labelBottom2ColorAccessorFn(data[index!], index);
+        final _shouldDrawLabelAccessorFn = shouldDrawLabelAccessorFn == null
+        ? null
+        : (int? index) => shouldDrawLabelAccessorFn(data[index!], index);
     final _insideLabelStyleAccessorFn = insideLabelStyleAccessorFn == null
         ? null
         : (int? index) => insideLabelStyleAccessorFn(data[index!], index);
@@ -225,6 +230,7 @@ class Series<T, D> {
       labelBottomAccessorFn: _labelBottomAccessorFn,
       labelBottom2AccessorFn: _labelBottom2AccessorFn,
       labelBottom2ColorAccessorFn: _labelBottom2ColorAccessorFn,
+       shouldDrawLabelAccessorFn: _shouldDrawLabelAccessorFn,
       insideLabelStyleAccessorFn: _insideLabelStyleAccessorFn,
       outsideLabelStyleAccessorFn: _outsideLabelStyleAccessorFn,
       measureFormatterFn: _measureFormatterFn,
@@ -259,6 +265,7 @@ class Series<T, D> {
     required this.labelBottomAccessorFn,
     required this.labelBottom2AccessorFn,
     required this.labelBottom2ColorAccessorFn,
+     required this.shouldDrawLabelAccessorFn,
     required this.insideLabelStyleAccessorFn,
     required this.outsideLabelStyleAccessorFn,
     required this.measureFormatterFn,

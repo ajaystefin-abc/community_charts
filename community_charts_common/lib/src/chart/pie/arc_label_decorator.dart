@@ -118,6 +118,7 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
         final labelBottomFn = element.series.labelBottomAccessorFn;
         final labelBottom2Fn = element.series.labelBottom2AccessorFn;
         final labelBottom2ColorFn = element.series.labelBottom2ColorAccessorFn;
+        final shouldDrawLabelFn = element.series.shouldDrawLabelAccessorFn;
         final datumIndex = element.index;
         final label = (labelFn != null) ? labelFn(datumIndex) : null;
         final labelBottom =
@@ -127,6 +128,8 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
         final labelBottom2Color = (labelBottom2ColorFn != null)
             ? labelBottom2ColorFn(datumIndex)
             : null;
+        final shouldDrawLabel =
+            (shouldDrawLabelFn != null) ? shouldDrawLabelFn(datumIndex) : null;
 
         // If there are custom styles, use that instead of the default or the
         // style defined for the entire decorator.
@@ -226,7 +229,7 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
 
         // Only calculate and draw label if there's actually space for the
         // label.
-        if (labelElement.maxWidth! > 0) {
+        if (labelElement.maxWidth! > 0 && (shouldDrawLabel ?? true)) {
           // Calculate the start position of label based on [labelAnchor].
           if (calculatedLabelPosition == ArcLabelPosition.inside) {
             _drawInsideLabel(canvas, arcElements, labelElement, centerAngle);
