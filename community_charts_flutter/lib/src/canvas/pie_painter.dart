@@ -59,6 +59,8 @@ class PiePainter {
           canvasPie.stroke!.g, canvasPie.stroke!.b);
 
       paint.strokeWidth = 2;
+      paint.color = Color.fromARGB(255, 199, 34, 42);
+
       paint.strokeJoin = StrokeJoin.bevel;
       paint.style = PaintingStyle.stroke;
 
@@ -83,11 +85,13 @@ class PiePainter {
 
         path.moveTo(innerRadiusStartPoint.x, innerRadiusStartPoint.y);
 
-        // path.lineTo(radiusStartPoint.x, radiusStartPoint.y);
+        if (slice.isBorderRequired)
+          path.lineTo(radiusStartPoint.x, radiusStartPoint.y);
 
         path.moveTo(innerRadiusEndPoint.x, innerRadiusEndPoint.y);
 
-        // path.lineTo(radiusEndPoint.x, radiusEndPoint.y);
+        if (slice.isBorderRequired)
+          path.lineTo(radiusEndPoint.x, radiusEndPoint.y);
       }
 
       canvas.drawPath(path, paint);
