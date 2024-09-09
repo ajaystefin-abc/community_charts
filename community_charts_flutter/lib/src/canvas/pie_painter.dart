@@ -47,8 +47,8 @@ class PiePainter {
           center: center,
           radius: radius,
           innerRadius: innerRadius,
-          startAngle: slice.startAngle - 2,
-          endAngle: slice.endAngle - 2,
+          startAngle: slice.startAngle,
+          endAngle: slice.endAngle,
           fill: slice.fill);
     }
 
@@ -83,11 +83,11 @@ class PiePainter {
 
         path.moveTo(innerRadiusStartPoint.x, innerRadiusStartPoint.y);
 
-        path.lineTo(radiusStartPoint.x, radiusStartPoint.y);
+        // path.lineTo(radiusStartPoint.x, radiusStartPoint.y);
 
         path.moveTo(innerRadiusEndPoint.x, innerRadiusEndPoint.y);
 
-        path.lineTo(radiusEndPoint.x, radiusEndPoint.y);
+        // path.lineTo(radiusEndPoint.x, radiusEndPoint.y);
       }
 
       canvas.drawPath(path, paint);
