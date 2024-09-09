@@ -47,8 +47,8 @@ class PiePainter {
           center: center,
           radius: radius,
           innerRadius: innerRadius,
-          startAngle: slice.startAngle,
-          endAngle: slice.endAngle,
+          startAngle: slice.startAngle - 2,
+          endAngle: slice.endAngle - 2,
           fill: slice.fill);
     }
 
