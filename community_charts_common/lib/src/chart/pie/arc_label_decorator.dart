@@ -117,12 +117,16 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
         final labelFn = element.series.labelAccessorFn;
         final labelBottomFn = element.series.labelBottomAccessorFn;
         final labelBottom2Fn = element.series.labelBottom2AccessorFn;
+        final labelBottom2ColorFn = element.series.labelBottom2ColorAccessorFn;
         final datumIndex = element.index;
         final label = (labelFn != null) ? labelFn(datumIndex) : null;
         final labelBottom =
             (labelBottomFn != null) ? labelBottomFn(datumIndex) : null;
         final labelBottom2 =
             (labelBottom2Fn != null) ? labelBottom2Fn(datumIndex) : null;
+        final labelBottom2Color = (labelBottom2ColorFn != null)
+            ? labelBottom2ColorFn(datumIndex)
+            : null;
 
         // If there are custom styles, use that instead of the default or the
         // style defined for the entire decorator.
@@ -211,7 +215,7 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
         labelElementBottom2.textStyle = _getTextStyle(
             graphicsFactory,
             TextStyleSpec(
-                color: Color(r: 199, g: 34, b: 42),
+                color: labelBottom2Color,
                 fontSize: fontSize,
                 fontWeight: '600'));
 

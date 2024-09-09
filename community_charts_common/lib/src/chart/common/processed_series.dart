@@ -114,6 +114,8 @@ class MutableSeries<D> extends ImmutableSeries<D> {
   AccessorFn<String>? labelBottomAccessorFn;
   @override
   AccessorFn<String>? labelBottom2AccessorFn;
+  @override
+  AccessorFn<Color>? labelBottom2ColorAccessorFn;
 
   @override
   AccessorFn<TextStyleSpec>? insideLabelStyleAccessorFn;
@@ -172,6 +174,7 @@ class MutableSeries<D> extends ImmutableSeries<D> {
         series.labelBottomAccessorFn ?? (i) => domainFn(i).toString();
     labelBottom2AccessorFn =
         series.labelBottom2AccessorFn ?? (i) => domainFn(i).toString();
+    labelBottom2ColorAccessorFn = series.labelBottom2ColorAccessorFn;
 
     _attrs.mergeFrom(series.attributes);
   }
@@ -207,6 +210,7 @@ class MutableSeries<D> extends ImmutableSeries<D> {
         labelAccessorFn = other.labelAccessorFn,
         labelBottomAccessorFn = other.labelBottomAccessorFn,
         labelBottom2AccessorFn = other.labelBottom2AccessorFn,
+        labelBottom2ColorAccessorFn = other.labelBottom2ColorAccessorFn,
         insideLabelStyleAccessorFn = other.insideLabelStyleAccessorFn,
         outsideLabelStyleAccessorFn = other.outsideLabelStyleAccessorFn,
         radiusPxFn = other.radiusPxFn,
@@ -310,6 +314,7 @@ abstract class ImmutableSeries<D> {
   AccessorFn<String>? get labelAccessorFn;
   AccessorFn<String>? get labelBottomAccessorFn;
   AccessorFn<String>? get labelBottom2AccessorFn;
+  AccessorFn<Color>? get labelBottom2ColorAccessorFn;
 
   AccessorFn<TextStyleSpec>? insideLabelStyleAccessorFn;
   AccessorFn<TextStyleSpec>? outsideLabelStyleAccessorFn;
