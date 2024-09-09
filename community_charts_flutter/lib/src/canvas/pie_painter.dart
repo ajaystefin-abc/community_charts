@@ -28,7 +28,7 @@ class PiePainter {
     final innerRadius = canvasPie.innerRadius;
 
     for (var slice in canvasPie.slices) {
-      print('AJ--1');
+      print('AJ--2');
       if (slice.isBorderRequired) {
         CircleSectorPainter.draw(
             canvas: canvas,
@@ -36,8 +36,8 @@ class PiePainter {
             center: center,
             radius: radius + 2,
             innerRadius: innerRadius - 2,
-            startAngle: slice.startAngle+2,
-            endAngle: slice.endAngle+2,
+            startAngle: slice.startAngle,
+            endAngle: slice.endAngle,
             fill: slice.fill,
             isBorderRequired: true);
       }
@@ -58,7 +58,7 @@ class PiePainter {
       paint.color = new Color.fromARGB(canvasPie.stroke!.a, canvasPie.stroke!.r,
           canvasPie.stroke!.g, canvasPie.stroke!.b);
 
-      paint.strokeWidth = canvasPie.strokeWidthPx;
+      paint.strokeWidth = 2;
       paint.strokeJoin = StrokeJoin.bevel;
       paint.style = PaintingStyle.stroke;
 
