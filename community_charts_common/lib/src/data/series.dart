@@ -180,7 +180,7 @@ class Series<T, D> {
     final _labelBottom2ColorAccessorFn = labelBottom2ColorAccessorFn == null
         ? null
         : (int? index) => labelBottom2ColorAccessorFn(data[index!], index);
-        final _shouldDrawLabelAccessorFn = shouldDrawLabelAccessorFn == null
+    final _shouldDrawLabelAccessorFn = shouldDrawLabelAccessorFn == null
         ? null
         : (int? index) => shouldDrawLabelAccessorFn(data[index!], index);
     final _insideLabelStyleAccessorFn = insideLabelStyleAccessorFn == null
@@ -230,7 +230,7 @@ class Series<T, D> {
       labelBottomAccessorFn: _labelBottomAccessorFn,
       labelBottom2AccessorFn: _labelBottom2AccessorFn,
       labelBottom2ColorAccessorFn: _labelBottom2ColorAccessorFn,
-       shouldDrawLabelAccessorFn: _shouldDrawLabelAccessorFn,
+      shouldDrawLabelAccessorFn: _shouldDrawLabelAccessorFn,
       insideLabelStyleAccessorFn: _insideLabelStyleAccessorFn,
       outsideLabelStyleAccessorFn: _outsideLabelStyleAccessorFn,
       measureFormatterFn: _measureFormatterFn,
@@ -265,7 +265,7 @@ class Series<T, D> {
     required this.labelBottomAccessorFn,
     required this.labelBottom2AccessorFn,
     required this.labelBottom2ColorAccessorFn,
-     required this.shouldDrawLabelAccessorFn,
+    required this.shouldDrawLabelAccessorFn,
     required this.insideLabelStyleAccessorFn,
     required this.outsideLabelStyleAccessorFn,
     required this.measureFormatterFn,
