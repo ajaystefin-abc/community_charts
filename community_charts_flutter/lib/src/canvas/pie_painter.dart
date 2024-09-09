@@ -28,6 +28,7 @@ class PiePainter {
     final innerRadius = canvasPie.innerRadius;
 
     for (var slice in canvasPie.slices) {
+      print('AJ--');
       if (slice.isBorderRequired) {
         CircleSectorPainter.draw(
             canvas: canvas,
