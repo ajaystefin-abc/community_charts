@@ -205,7 +205,12 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
           labelElement.textStyle = datumOutsideLabelStyle;
           labelElement.maxWidth = outsideArcWidth + 20;
         }
-        int fontSize = labelElementBottom.text.length > 15 ? 9 : 11;
+        int fontSize = 11;
+        if (labelElementBottom.text.length > 20) {
+          fontSize = 6;
+        } else if (labelElementBottom.text.length > 15) {
+          fontSize = 9;
+        }
         labelElementBottom.textStyle = _getTextStyle(
             graphicsFactory,
             TextStyleSpec(
